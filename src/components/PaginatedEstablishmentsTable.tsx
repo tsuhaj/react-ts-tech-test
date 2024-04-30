@@ -37,12 +37,10 @@ export const PaginatedEstablishmentsTable = () => {
 
 	async function handlePreviousPage() {
 		pageNum > 1 && setPageNum(pageNum - 1);
-		//deleted fetch, it caused desync between rendered pageNum and the actual one sent to the server
 	}
 
 	async function handleNextPage() {
 		pageNum < pageCount && setPageNum(pageNum + 1);
-		//deleted fetch, it caused desync between rendered pageNum and the actual one sent to the server
 	}
 
 	const loadData = () => {
@@ -52,7 +50,7 @@ export const PaginatedEstablishmentsTable = () => {
 				setEstablishments(result?.establishments || []);
 			})
 			.catch((error) => {
-				setError(error);
+				setError(error.message);
 			})
 			.finally(() => {
 				setLoading(false);
@@ -60,7 +58,7 @@ export const PaginatedEstablishmentsTable = () => {
 	};
 
 	if (error) {
-		return <div>Error: {error.message}</div>;
+		return <div>Error: {error}</div>;
 	} else {
 		return (
 			<div style={tableStyle}>
