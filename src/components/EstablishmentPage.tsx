@@ -6,7 +6,8 @@ const buildAddressFromArray = (addressLines: string[]): string => {
 	return addressLines.filter((line) => line.trim() !== "").join(", ");
 };
 
-const formatter = new Intl.DateTimeFormat("en-US", { day: "2-digit", month: "2-digit", year: "2-digit" });
+//Represents dd/mm/yy format
+const formatter = new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "2-digit", year: "2-digit" });
 
 const EstablishmentPage: FC = (): JSX.Element => {
 	const { id } = useParams();
