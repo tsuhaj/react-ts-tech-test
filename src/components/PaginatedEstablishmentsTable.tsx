@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { EstablishmentsTable } from "./EstablishmentsTable";
 import { EstablishmentsTableNavigation } from "./EstablishmentsTableNavigation";
-import { getEstablishmentRatings } from "../api/ratingsAPI";
+import { EstablishmentRowData, getEstablishmentRatings } from "../api/ratingsAPI";
 import { Authority, getAllAuthorities } from "../api/authoritiesAPI";
 
-const tableStyle = {
+export const tableStyle = {
 	background: "#82C7AF",
 	padding: "10px",
 	width: "max-content",
@@ -14,10 +14,10 @@ const tableStyle = {
 
 export const PaginatedEstablishmentsTable = () => {
 	const [error, setError] = useState<{ message: string; [key: string]: string }>();
-	const [establishments, setEstablishments] = useState<{ [key: string]: string }[]>([]);
+	const [establishments, setEstablishments] = useState<EstablishmentRowData[]>([]);
 	const [pageNum, setPageNum] = useState(1);
 	const [pageCount] = useState(100);
-	const [loading, setLoading] = useState<boolean>(true);
+	const [loading, setLoading] = useState<boolean>(false);
 
 	const [filteredAuthorityId, setFilteredAuthorityId] = useState<number>(0);
 	const [allAuthorities, setAllAuthorities] = useState<Authority | null>(null);
@@ -33,6 +33,7 @@ export const PaginatedEstablishmentsTable = () => {
 	useEffect(() => {
 		//Loads initial establishments and also after each filter / page change
 		loadData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [filteredAuthorityId, pageNum]);
 
 	async function handlePreviousPage() {
