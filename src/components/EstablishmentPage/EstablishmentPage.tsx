@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Establishment, getEstablishmentById } from "../api/ratingsAPI";
+import { Establishment, getEstablishmentById } from "../../api/ratings/ratingsAPI";
 
 const buildAddressFromArray = (addressLines: string[]): string => {
 	return addressLines.filter((line) => line.trim() !== "").join(", ");

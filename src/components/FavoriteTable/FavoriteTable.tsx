@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { tableRowStyle } from "./EstablishmentsTableRow";
-import { EstablishmentRowData, getEstablishmentsByMultipleIds } from "../api/ratingsAPI";
-import { useFavorite } from "../context/FavoriteProvider";
-import { headerStyle } from "./EstablishmentsTable";
-import { tableStyle } from "./PaginatedEstablishmentsTable";
+import { tableRowStyle } from "../EstablishmentTableRow/EstablishmentsTableRow";
+import { EstablishmentRowData, getEstablishmentsByMultipleIds } from "../../api/ratings/ratingsAPI";
+import { useFavorite } from "../../context/FavoriteProvider";
+import { headerStyle } from "../EstablishmentTable/EstablishmentsTable";
+import { tableStyle } from "../PaginatedEstablishmentsTable/PaginatedEstablishmentsTable";
 
 export const FavoriteTable: React.FC = () => {
 	const [favoriteEstablishments, setFavoriteEstablishments] = useState<EstablishmentRowData[]>([]);
@@ -73,11 +73,11 @@ export const FavoriteTable: React.FC = () => {
 					<th style={headerStyle}>Rating Value</th>
 				</tr>
 
-				{error && (
+				{error ? (
 					<tr>
 						<td>Error:{error}</td>
 					</tr>
-				)}
+				) : null}
 
 				{loading ? (
 					<tr>

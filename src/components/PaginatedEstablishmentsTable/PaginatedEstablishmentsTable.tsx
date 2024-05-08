@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { EstablishmentsTable } from "./EstablishmentsTable";
-import { EstablishmentsTableNavigation } from "./EstablishmentsTableNavigation";
-import { EstablishmentRowData, getEstablishmentRatings } from "../api/ratingsAPI";
-import { Authority, getAllAuthorities } from "../api/authoritiesAPI";
+import { EstablishmentsTable } from "../EstablishmentTable/EstablishmentsTable";
+import { EstablishmentsTableNavigation } from "../EstablishmentsTableNavigation/EstablishmentsTableNavigation";
+import { EstablishmentRowData, getEstablishmentRatings } from "../../api/ratings/ratingsAPI";
+import { Authority, getAllAuthorities } from "../../api/authorities/authoritiesAPI";
 
 export const tableStyle = {
 	background: "#82C7AF",
@@ -25,7 +25,7 @@ export const PaginatedEstablishmentsTable = () => {
 	useEffect(() => {
 		getAllAuthorities()
 			.then((data) => setAllAuthorities(data))
-			.catch((error) => setError(error));
+			.catch((error) => setError(error.message));
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -66,7 +66,7 @@ export const PaginatedEstablishmentsTable = () => {
 				<h2>Food Hygiene Ratings</h2>
 				<div>
 					<label htmlFor="filterSelect">Filter by:</label>
-					<select id="filterSelect" onChange={(e) => setFilteredAuthorityId(parseInt(e.target.value))}>
+					<select data-testid="filter" id="filterSelect" onChange={(e) => setFilteredAuthorityId(parseInt(e.target.value))}>
 						<option value="0">Authority</option>
 						{allAuthorities?.authorities.map((item) => (
 							<option key={item.LocalAuthorityId} value={item.LocalAuthorityId}>

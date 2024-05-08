@@ -1,9 +1,9 @@
 import { Component } from "react";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/HomePage/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import EstablishmentPage from "./components/EstablishmentPage";
+import EstablishmentPage from "./components/EstablishmentPage/EstablishmentPage";
 import FavoriteProvider from "./context/FavoriteProvider";
-import LayoutLayer from "./components/LayoutLayer";
+import LayoutLayer from "./components/LayoutLayer/LayoutLayer";
 
 class App extends Component {
 	render() {

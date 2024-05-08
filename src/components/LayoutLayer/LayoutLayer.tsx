@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { FavoriteTable } from "./FavoriteTable";
+import { FavoriteTable } from "../FavoriteTable/FavoriteTable";
 
 const LayoutLayer = () => {
 	return (

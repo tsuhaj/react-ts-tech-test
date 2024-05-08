@@ -1,19 +1,27 @@
 import { FC, createContext, useContext, useEffect, useState } from "react";
 
-interface FavoriteContextType {
+export interface FavoriteContextType {
 	favoriteEstablishmentIds: string[];
 	addToFavorites: (id: string) => void;
 	removeFromFavorites: (id: string) => void;
+}
+
+export interface FavoriteProviderProps {
+	children: React.ReactNode;
+	favoriteEstIds?: string[];
 }
 
 const localStorageKey = "favorite-establishment-ids";
 
 const FavoriteContext = createContext<FavoriteContextType | null>(null);
 
-const FavoriteProvider: FC = ({ children }) => {
+const FavoriteProvider: FC<FavoriteProviderProps> = ({ children, favoriteEstIds }) => {
 	const [favoriteEstablishmentIds, setFavoriteEstablishmentIds] = useState<string[]>(() => {
-		const storedData = localStorage.getItem(localStorageKey);
-		return storedData ? JSON.parse(storedData) : [];
+		if (favoriteEstIds) return favoriteEstIds;
+		else {
+			const storedData = localStorage.getItem(localStorageKey);
+			return storedData ? JSON.parse(storedData) : [];
+		}
 	});
 
 	const addToFavorites = (id: string) => {

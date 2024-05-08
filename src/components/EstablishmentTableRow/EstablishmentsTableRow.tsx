@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useFavorite } from "../context/FavoriteProvider";
-import { EstablishmentRowData } from "../api/ratingsAPI";
+import { useFavorite } from "../../context/FavoriteProvider";
+import { EstablishmentRowData } from "../../api/ratings/ratingsAPI";
 
 export const tableRowStyle: { [key: string]: string | number } = {
 	fontSize: "20px",
