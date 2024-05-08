@@ -1,26 +1,28 @@
 # React & TypeScript Tech Test
 
-This is Convex React TypeScript Tech Test.
+Welcome to the Convex React TypeScript Tech Test.
 
 ## Changelog (v2)
 
-- Added automated tests using React Testing Library & Jest
-- Refactored data fetching using TypeScript's generics
-- Improved folder structure
-- Other minor changes
+- Integrated automated tests using React Testing Library & Jest
+- Enhanced data fetching through TypeScript's generics
+- Optimized folder structure for better organization
+- Implemented various minor improvements
 
 ## Objectives
 
-- Changed font size of table rows to 20px
-- Added loading indicator to the table
-- Added filtering capabilities based on "Authority"
-- Added single establishment page
-- Added favorites table using React Context & localStorage
+- Adjusted table row font size to 20px for better readability
+- Incorporated loading indicator within the table for improved UX
+- Added filtering functionality based on "Authority"
+- Introduced a single establishment page for detailed view
+- Implemented favorites table using React Context & localStorage
 
 ## Getting Started
 
-- Clone the repo: `git clone https://github.com/tsuhaj/react-ts-tech-test.git`
-- Intall dependencies: `npm install`
-- Run it: `npm start`
-- Test it: `npm test`
-- Build it: `npm build`
+Follow these steps to get started:
+
+1. Clone the repository: `git clone https://github.com/tsuhaj/react-ts-tech-test.git`
+2. Install dependencies: `npm install`
+3. Run the application: `npm start`
+4. Test the application: `npm test`
+5. Build the application: `npm build`
